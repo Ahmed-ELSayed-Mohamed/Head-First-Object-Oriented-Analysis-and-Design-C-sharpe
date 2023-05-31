@@ -10,7 +10,7 @@ namespace Chapter_one_well_designed_apps_rock
             // Set up Rick’s guitar inventory
             Inventory inventory = new Inventory();
             initializeInventory(inventory);
-            Guitar whatErinLikes = new Guitar("", 0, "fender", "Stratocastor",
+            Guitar whatErinLikes = new Guitar("", 0, "Fender", "Stratocastor",
             "electric", "Alder", "Alder");
             Guitar guitar = inventory.search(whatErinLikes);
             if (guitar != null)
