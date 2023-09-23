@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Chapter_one_well_designed_apps_rock
 {
     public class Inventory
-    {
+    {   
         public List<Guitar> guitars;
         public Inventory()
         {
@@ -31,11 +31,12 @@ namespace Chapter_one_well_designed_apps_rock
             return null;
         }
 
-        public Guitar search(Guitar searchGuitar)
+        public List <Guitar> search(Guitar searchGuitar)
         {
+            List <Guitar> guitars = new List <Guitar>();
             foreach (var guitar in guitars)
             {
-                if (searchGuitar.getModel() !=guitar.getModel() )
+                if ( searchGuitar.getModel().ToLower() !=guitar.getModel().ToLower() )
                 {
                     continue;
                 }
@@ -55,9 +56,9 @@ namespace Chapter_one_well_designed_apps_rock
                 {
                     continue;
                 }
-                return guitar;
+                guitars.Add(guitar);
             }
-            return null;
+            return guitars;
         }
     }
 }
