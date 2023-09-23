@@ -17,9 +17,9 @@ namespace Chapter_one_well_designed_apps_rock
         {
             this.serialNumber = serialNumber;
             this.price = price;
-            this.builder = builder.ToLower();
-            this.model = model.ToLower();
-            this.type = type.ToLower();
+            this.builder = builder;
+            this.model = model;
+            this.type = type;
             this.backWood = backWood.ToLower();
             this.topWood = topWood.ToLower();
         }

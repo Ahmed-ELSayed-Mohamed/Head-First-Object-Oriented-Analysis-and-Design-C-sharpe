@@ -1,26 +1,31 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace Chapter_one_well_designed_apps_rock
 {
     internal class Program
     {
+
+
         static void Main(string[] args)
         {
             // Set up Rick’s guitar inventory
             Inventory inventory = new Inventory();
             initializeInventory(inventory);
-            Guitar whatErinLikes = new Guitar("", 0, "fender", "Stratocastor",
-            "electric", "Alder", "Alder");
-            Guitar guitar = inventory.search(whatErinLikes);
-            if (guitar != null)
+            Guitar whatErinLikes = new Guitar("", 0, Bulider.FENDER.ToString(), "Stratocastor",
+            Type.electric.ToString(), "Alder", "Alder");
+           List <Guitar> guitars = inventory.search(whatErinLikes);
+            if (guitars.Count > 0)
             {
-                  Console.WriteLine("Erin, you might like this " +
-                guitar.getBuilder() + " " +guitar.getModel() + " "
-+guitar.getType() + " guitar:\n " +
-                guitar.getBackWood() + " back and sides,\n " +
-                guitar.getTopWood() + " top.\nYou can have it for only $" +
-                guitar.getPrice() + "!") ;
+                foreach (var guitar in guitars) {
+                    Console.WriteLine("Erin, you might like this " +
+                  guitar.getBuilder() + " " + guitar.getModel() + " "
+                  + guitar.getType() + " guitar:\n " +
+                  guitar.getBackWood() + " back and sides,\n " +
+                  guitar.getTopWood() + " top.\nYou can have it for only $" +
+                  guitar.getPrice() + "!");
+                }
             }
             else
             {
@@ -30,8 +35,8 @@ namespace Chapter_one_well_designed_apps_rock
         private static void initializeInventory(Inventory inventory)
         {
             // Add guitars to the inventory...
-            inventory.addGuitar("1234",22.5,"ahmed","c","type-c","wood1","wood2");
-            inventory.addGuitar("V95693”,", 22.5, "Fender", "Stratocastor", "electric", "Alder", "Alder");
+            inventory.addGuitar("V95693", 22.5,Bulider.FENDER.ToString(),"Stratocastor", Type.electric.ToString(),Wood.IndianRosewood.ToString(),Wood.BrazilianRosewood.ToString());
+            inventory.addGuitar("V95666”,", 30.55, Bulider.COLLINGS.ToString(), "Stratocastor", Type.acoustic.ToString(),Wood.IndianRosewood.ToString(), Wood.IndianRosewood.ToString());
 
         }
     }
